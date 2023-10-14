@@ -110,6 +110,18 @@ async function createRec(postId, rec) {
   }
 }
 
+async function deleteRec(postId, recId) {
+  try {
+    const res = await fetch(`${BASE_URL}/${postId}/recommendations/${recId}`, {
+      method: 'DELETE',
+      headers: {'Authorization': `Bearer ${tokenService.getToken()}`}
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 async function likePost(postId) {
   try {
     const res = await fetch(`${BASE_URL}/${postId}/likes`, {
@@ -132,6 +144,7 @@ export {
   createComment,
   deleteComment,
   createRec,
+  deleteRec,
   deletePost,
   likePost,
 }

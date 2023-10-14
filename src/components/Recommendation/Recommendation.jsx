@@ -21,7 +21,6 @@ const Recommendation = (props) => {
 
   return (  
     <>
-      <p>This is a Recommendation</p>
       <main>
       <form onSubmit={handleSubmit}>
       <label htmlFor="name-input">Name:</label>

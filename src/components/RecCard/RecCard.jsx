@@ -1,21 +1,20 @@
 // css
 import styles from './RecCard.module.css'
 
-const RecCard = (props) => {
-if (!props.recommendation.name) return <h4>Write a recommendation!</h4>
+const RecCard = ({ recommendation, author, user, handleDeleteRec}) => {
+// if (!recommendation) return <h4>Write a recommendation!</h4>
 
   return ( 
-    <>
+    <article>
     <header>
       {/* author */}
     </header>
-      <h4>{props.recommendation.name}</h4>
-      <p>{props.recommendation.activity}</p>
-      <p>{props.recommendation.time}</p>
-      <p>{props.recommendation.rating}</p>
-      {props.author === props.user.profile._id &&  <button>Delete</button>}
-      {/* {props.author === props.user.profile._id &&  <button onClick={() => props.handleDeleteRec(props.recommendation._id)}>Delete</button>} <= ADD handleDeleteRec  once backend is written for it*/} 
-    </>
+      <h4>{recommendation.name}</h4>
+      <p>{recommendation.activity}</p>
+      <p>{recommendation.time}</p>
+      <p>{recommendation.rating}</p>
+      {author === user.profile._id &&  <button onClick={() => handleDeleteRec(recommendation._id)}>Delete</button>}
+    </article>
   )
 }
 
