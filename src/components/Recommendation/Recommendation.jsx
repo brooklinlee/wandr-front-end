@@ -18,6 +18,11 @@ const Recommendation = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     props.handleAddRec(rec)
+    setRec({name: '',
+    activity: '',
+    time: '30 min',
+    rating: 5,
+    text: ''})
   }
 
   return (  
